@@ -1,0 +1,56 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+
+<head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="google" value="notranslate">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="./style.css">
+  <title>My App</title>
+  <style type="text/css">
+  	.pd {
+  		padding: 5px;
+  	}
+  </style>
+  <script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">My App <%= name %></a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+		<div class="navbar-form navbar-right" >
+			<% if ( name ) { %>
+				<p style="color: white"><strong> Welcome <%= name %></strong>
+                	<button  class="btn btn-info"><a href="/logout" style="color: white">logout </a></button>
+                </p>
+            <% } else { %>
+			<button  class="btn btn-success"> <a href="/login" style="color:white">login<a/></button>
+          	 <a href="/signup" style="color:white">signup<a/></button>
+          	<% }%>
+        </div>
+	  </div>
+    </div>
+  </nav>
+    
+  </div> <!-- /container -->
+
+  

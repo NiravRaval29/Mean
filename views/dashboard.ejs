@@ -1,0 +1,68 @@
+<%- include('header',{name:firstName }); -%>
+
+<div class="jumbotron">
+    <div class="container">
+        <h2 class="center">Mr.<%= firstName %> Welcome to Dashboard Page</h2>
+        <div class="col-lg-12 pd">
+            <div class="pull-left">
+            <h3>User List DataTable</h3>
+            </div>
+            <div class="pull-right " style="margin:  10px">
+
+                <form action="/search" method="post">
+                 <div data-toggle="tooltip" data-placement="top" title="Search on FirstName, LastName, Email">
+                <input type="text" name="search" placeholder="search" >
+                <button type="submit">Search</button>
+                </div>   
+
+            </div>
+        </div>
+         
+            <div class="col-lg-12 pd">
+                <table class="table">
+                    <thead>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Email</th>
+                        <th>PhoneNO</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Country</th>
+                        <th>Role</th>
+                        <th>Action</th>
+
+                    </thead>
+                    <% if ( data.length > 0) { %>
+                    <tbody>
+                        <% data.forEach(function(data){ %>
+                            <tr>
+                                <td><%- data.firstName %></td>
+                                <td><%- data.lastName %></td>
+                                <td><%- data.email %></td>
+                                <td><%- data.phoneNo %></td>
+                                <td><%- data.city %></td>
+                                <td><%- data.state %></td>
+                                <td><%- data.country %></td>
+                                <td><%- data.roles %></td>
+                                <td><%- data._id%><button><a href="/fetchUser/<%- data._id%>" >Edit</a></button><button><a href="/deleteUser/<%- data._id%>" >Delete</a></button></td>
+                            </tr>
+                        <% }); %>
+                        </tbody>
+                    <% } else{%>
+                        <tr class="alert alert-danger" role="alert">
+                            <td colspan="9" >
+                                <center><h2><%= dataTableErrorMsg %></h2></center>
+                            </td>
+                        </tr> 
+                    <% } %>
+                    <tfoot>
+                        
+                    </tfoot>
+
+                </table>
+            </div>
+    </div>
+</div>
+
+
+<%- include('footer'); -%>

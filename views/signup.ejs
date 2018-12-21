@@ -1,0 +1,75 @@
+<%- include('header',{name:"" }); -%>
+<div class="jumbotron">
+    <div class="container">
+    <h1>Signup Form</h1>
+    <div class="row">
+      <div class="col-lg-12 pd">
+        <form method="post" action="/signupCheck">
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">FirstName:</label>
+            <input type="text" name="firstName" class="col-lg-4 pd">
+          </div>
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">LastName:</label>
+            <input type="text" name="lastName" class="col-lg-4 pd">
+          </div>
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">Roles:</label>
+            <select name="roles" class="col-lg-4 pd">
+            <% roles.forEach(function(role){ %>
+              <option value="<%-  role %>"><%-  role %></option>
+               <% }); %> 
+            </select > 
+          </div>
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">Email:</label>
+            <input type="text" name="email" class="col-lg-4 pd">
+          </div>
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">Password:</label>
+            <input type="text" name="password" class="col-lg-4 pd">
+          </div>
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">PhoneNo:</label>
+            <input type="text" name="phoneNo" class="col-lg-4 pd">
+          </div>
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">City:</label>
+            <select name="city" class="col-lg-4 pd">
+            <% city.forEach(function(city){ %>
+              <option value="<%-  city %>"><%-  city %></option>
+               <% }); %> 
+            </select > 
+          </div >
+          <div class="col-lg-12 pd">
+          <label class="col-lg-2 pd">State : </label>
+          <select name="state" class="col-lg-4 pd">
+          <% state.forEach(function(user){ %>
+            <option value="<%-  user %>"><%-  user %></option>
+             <% }); %> 
+          </select > 
+          </div>
+          <div class="col-lg-12 pd">
+            <label class="col-lg-2 pd">Country:</label>
+            <select name="country" class="col-lg-4 pd">
+                <% country.forEach(function(country){ %>
+                    <option value="<%-  country %>"><%-  country %></option>
+                <% }); %> 
+            </select > 
+          </div>
+           <div class="col-lg-12 pd">
+                <br />
+                <div class="float-left col-lg-5 pd" ><input type="submit" value="SignUp" class="btn btn-success"></div>
+                <div class="float-right col-lg-4 pd"><a href="/login" >Login Here</a></div>
+            </div>
+            
+            <% if ( signupErrorMsg ) { %>
+                <div class="col-lg-12 pd alert alert-danger pd">
+                    <p><strong>Error! </strong> <%= signupErrorMsg %></p>
+                </div>   
+            <% } %>
+        </form>    
+      </div>
+    </div>
+  </div>
+</div>1
